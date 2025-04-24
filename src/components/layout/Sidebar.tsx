@@ -3,6 +3,10 @@
 import Link from 'next/link';
 import { useSelector } from 'react-redux';
 import { RootState } from '@/lib/store';
+import { CgProfile } from 'react-icons/cg';
+import { IoSettingsOutline } from 'react-icons/io5';
+import { FaPeopleGroup } from 'react-icons/fa6';
+import { MdDashboard, MdOutlineArticle } from 'react-icons/md';
 
 interface SidebarProps {
   collapsed: boolean;
@@ -16,13 +20,13 @@ const Sidebar = ({ collapsed, currentPath }: SidebarProps) => {
   const navItems = [
     // Only show dashboard for non-admin users
     ...(isAdmin ? [] : [
-      { href: '/dashboard', icon: 'dashboard', label: 'Dashboard', roles: ['user'] }
+      { href: '/dashboard', icon: <MdDashboard />, label: 'Dashboard', roles: ['user'] }
     ]),
-    { href: '/profile', icon: 'person', label: 'Profile', roles: ['user', 'admin'] },
-    { href: '/settings', icon: 'settings', label: 'Settings', roles: ['user', 'admin'] },
+    { href: '/profile', icon: <CgProfile />, label: 'Profile', roles: ['user', 'admin'] },
+    { href: '/settings', icon: <IoSettingsOutline />, label: 'Settings', roles: ['user', 'admin'] },
     // Admin-only items
-    { href: '/admin/users', icon: 'people', label: 'User Management', roles: ['admin'] },
-    { href: '/admin/posts', icon: 'article', label: 'Post Moderation', roles: ['admin'] },
+    { href: '/admin/users', icon: <FaPeopleGroup />, label: 'User Management', roles: ['admin'] },
+    { href: '/admin/posts', icon: <MdOutlineArticle />, label: 'Post Moderation', roles: ['admin'] },
   ];
 
   return (

@@ -5,6 +5,8 @@ import { RootState } from '@/lib/store';
 import { toggleSidebar, toggleDarkMode } from '@/features/uiSlice';
 import { useRouter } from 'next/navigation';
 import { logout } from '@/features/authSlice';
+import { IoIosMenu } from 'react-icons/io';
+import { MdDarkMode, MdOutlineLightMode } from 'react-icons/md';
 
 const Topbar = () => {
     const dispatch = useDispatch();
@@ -28,7 +30,7 @@ const Topbar = () => {
                         onClick={() => dispatch(toggleSidebar())}
                         className="mr-4 text-gray-500 dark:text-gray-400 focus:outline-none"
                     >
-                        <span className="material-icons-outlined">menu</span>
+                        <IoIosMenu className='text-xl'/>
                     </button>
                     <h1 className="text-xl font-semibold text-gray-800 dark:text-white">
                         {currentPageTitle}
@@ -41,9 +43,9 @@ const Topbar = () => {
                         className="text-gray-500 dark:text-gray-400 focus:outline-none"
                     >
                         {darkMode ? (
-                            <span className="material-icons-outlined">light_mode</span>
+                            <MdOutlineLightMode className='text-xl'/>
                         ) : (
-                            <span className="material-icons-outlined">dark_mode</span>
+                            <MdDarkMode className='text-xl'/>
                         )}
                     </button>
 

@@ -55,7 +55,7 @@ export const login = createAsyncThunk<LoginResponse, LoginCredentials, {
           email: 'admin@example.com',
           password: 'admin123',
           role: 'admin' as const,
-          avatar: '/avatars/admin.png',
+          avatar: '/card2.jpg',
         },
         {
           id: '2',
@@ -63,7 +63,7 @@ export const login = createAsyncThunk<LoginResponse, LoginCredentials, {
           email: 'user@example.com',
           password: 'user123',
           role: 'user' as const,
-          avatar: '/avatars/user.png',
+          avatar: '/card2.jpg',
         },
       ];
 
@@ -84,8 +84,6 @@ export const login = createAsyncThunk<LoginResponse, LoginCredentials, {
         ...(user.avatar && { avatar: user.avatar }) // Optional avatar
       };
       const token = `mock-token-${user.id}`;
-      return { user: userWithoutPassword, token };
-      
       return { user: userWithoutPassword, token };
     } catch (error) {
       return rejectWithValue(error instanceof Error ? error.message : 'Login failed');
